@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Guess Flags</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="logic.js"></script>
+
+    <audio id="ping">
+      <source src="ping.mp3" type="audio/mpeg">
+    </audio>
+
+  </head>
+  <body onload="init()">
+
+
+    <div id="main" >
+
+        <div id="game_menu">
+            <div id="col1">
+              <button id="r1" type="button" class="mode_btn all_button" onclick="setRegion('all', 'r1');">WSZYSTKIE</button></br>
+              <button id="r2" type="button" class="mode_btn pressed" onclick="setRegion('region/europe', 'r2');">EUROPA</button></br>
+              <button id="r3" type="button" class="mode_btn" onclick="setRegion('region/asia', 'r3');">AZJA</button></br>
+              <button id="r4" type="button" class="mode_btn" onclick="setRegion('region/africa', 'r4');">AFRYKA</button></br>
+              <button id="r5" type="button" class="mode_btn" onclick="setRegion('region/americas', 'r5');">AMERYKA</button></br>
+              <button id="r6" type="button" active="off" class="mode_btn" onclick="setRegion('region/oceania', 'r6');">OCEANIA</button></br>
+            </div>
+
+            <div id="col2">
+            <div id="info" class="info_label">
+              <p id="actual_time" timer_id="0" hidden></p>
+              <b id="time_label">CZAS: </b>  <b id="time_val"> </b></br>
+              <b id="countries_label">KRAJE: </b> <b id="score">0</b><b> / </b> <b id="max_score">0</b>
+            </div>
+            <button type="button" class="lang_btn pressed" id="pl" onclick="setLang('pl');">PL</button>
+            <button type="button" class="lang_btn" id="eng" onclick="setLang('eng');">ENG</button>
+          </div>
+            <button type="button" id="play_button" onclick="runGame();">GRAJ!</button>
+          </div>
+        <div id="holder"></div>
+
+      <div id="game" max_t="t0" state="menu"></div>
+      <button type="button" id="resign_button"  onclick="resignGame()" hidden>KONIEC GRY</button>
+      <button type="button" id="reset_button"  onclick="resetGame()" hidden>MENU</button>
+      </div>
+    </div>
+  </body>
+</html>
